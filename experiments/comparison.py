@@ -57,7 +57,7 @@ def get_dataset_filenames(train, dev, test):
     return get_data_filenames(train), get_data_filenames(dev), get_data_filenames(test)
 
 
-def compare_performance(data, model_names, retrain=False, verbose=False, link=None):
+def compare_performance(data, model_names, retrain=False, verbose=False):
     results = {}
     for train, devel, test in data:
         trn, dev, tst = get_acronyms(train, devel, test)
@@ -96,7 +96,7 @@ def compare_performance(data, model_names, retrain=False, verbose=False, link=No
                 if len(y_trn) != 0:
                     acc = -1
                 else:
-                    acc = sent2vec_accuracy(X_tst, y_tst, PROJECT_ID, TOKEN, verbose=verbose, link=link)
+                    acc = sent2vec_accuracy(X_tst, y_tst, verbose=verbose)
                 print(f"acc: {acc}")
                 print("-----------------------")
             results[f"trn: {trn}, dev: {dev}, tst: {tst}"][model_name] = acc
@@ -203,7 +203,6 @@ def compare(
     calc_learning_curve=True,
     verbose=False,
     retrain=True,
-    link=None
 ):
     if update_dataset:
         from experiments.datasetcreator import DatasetCreator
@@ -220,7 +219,7 @@ def compare(
         harry_potter_dataset.create(update=True)
 
     if comp_performance:
-        compare_performance(data, model_names, retrain=retrain, verbose=verbose, link=link)
+        compare_performance(data, model_names, retrain=retrain, verbose=verbose)
     if calc_learning_curve:
         compare_learning_curves(data, model_names)
     if comp_exec_time:
@@ -255,7 +254,6 @@ if __name__ == "__main__":
     args = vars(parser.parse_args())
 
     comp_performance, update_dataset, comp_exec_time, calc_learning_curve, retrain, verbose = args.values()
-    link = None
 
     if "sent2vec" in model_names:
         print('sorry, sent2vec is not available')
@@ -270,5 +268,4 @@ if __name__ == "__main__":
         calc_learning_curve=calc_learning_curve,
         retrain=retrain,
         verbose=verbose,
-        link=link,
     )

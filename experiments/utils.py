@@ -31,16 +31,13 @@ b = 0
 def similarity_sent2vec(
     sentences: List[List[str]],
     real_scores: List[float],
-    project_id: str,
-    token: str,
-    link,
     verbose=False,
 ):
     return None
 
 
-def sent2vec_accuracy(x: List[List[str]], y: List[float], project_id: str, token: str, verbose, link):
-    scores = similarity_sent2vec(x, y, project_id, token, link, verbose=verbose)
+def sent2vec_accuracy(x: List[List[str]], y: List[float], verbose):
+    scores = similarity_sent2vec(x, y, verbose=verbose)
     err = np.array([abs(score - pred_score) for score, pred_score in zip(y, scores)])
 
     scores = np.array(scores)
