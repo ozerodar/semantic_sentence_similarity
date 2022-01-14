@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyc
+*$py.class
+.idea/
+*.egg-info/*
+data/stsbenchmark.tsv.gz
+data/STS_*harry_potter*
+data/STS_*stsb*
+data/spelling_en.txt
+
+# Sphinx documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Data folders
+/data/results
+/data/tuned
+
+# Scratches temp files (JS)
+scratches/temp*
+
+.DS_Store

@@ -1,0 +1,11 @@
+[
+  ["I went to the river bank", "I went to bank to make a deposit", 0.1],
+  ["Put the stress on the second syllable", "The examination put a lot of stress on him", 0.0],
+  ["She is going to the park", "She is going to park her car", 0.2],
+  ["The house is looking really run down", "The house is in a really bad condition", 1.0],
+  ["We ran out of milk", "We didn't have any more milk", 0.8],
+  ["The man took a bow to shoot", "The man took a bow to the king", 0.2],
+  ["I enjoy eating apples", "I found apples very tasty", 0.9],
+  ["How are you", "How old are you", 0.2],
+  ["The app is not available for the iPad", "The app is now available for the iPad", 0.4]
+]
